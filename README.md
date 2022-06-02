@@ -62,20 +62,24 @@
     <ul> 
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
-        <ul>
-          <li><a href="#input">Input data</a></li>
-          <li><a href="#command-line-usage">command-line-usage</a></li>
-          <li><a href="#use as python package">use as python package</a></li>
-          
+    <ul>
+        <li><a href="#input data">input data</a></li>
+        <li><a href="#command-line-usage">command-line-usage</a></li>
+        <li><a href="usage as a python package">use as python package</a></li>
+        <li><a href="#output">output</a></li>
         </ul> 
-    </ul>
-     </li>
-        <li><a href="#roadmap">Roadmap</a></li>
+       <li><a href="#Parameters description">Parameters description</a></li>
+        <ul>
+          <li><a href="#average heatmap generation">average heatmap generation</a></li>
+          <li><a href="#resolution">resolution</a></li>
+          <li><a href="#distance">distance</a></li>
+        </ul> 
+   </ul>
+     </li>  
         <li><a href="#contributing">Contributing</a></li>
         <li><a href="#license">License</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#acknowledgments">Acknowledgments</a></li>
-      
+     
   </ul>
 </details>
 
@@ -89,9 +93,6 @@
 There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
 The package was developed to detect significant contacts from a human Hi-C data. It has not been tested on another species.
-
-One of the important issue is Hi-C data resolution. Everybody strives to set as small a bin size as it possible for Hi-C data, this strategy helps to more accurately annotate the resulting contacts in the subsequent analysis. But, unfortunately, using the sparse data is not appropriate here. The only thing user should rely on is the Hi-C map quality.  
-
 
 
 <!-- GETTING STARTED -->
@@ -113,9 +114,10 @@ Requirements
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
-### Input data 
-   <ul>
+### Usage
+
+#### Input data
+<ul>
           <li><a href="#Hi-C">Hi-C map in .cool format </a></li>
           <li><a href="#list-of-locus"> Tab-delimited file for genomic features to be explored. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
            <li><a href="#list-of-back-locus"> Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
@@ -125,12 +127,12 @@ Requirements
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-### Command-line-usage
+#### Command-line-usage
 Type  _contact-hunter  -h_   in terminal to view all the parameter description.
   ```sh
    contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
    ```
-### Use as a python package
+#### Usage as a python package
 Import module.
   ```sh
    import contact-hunter
@@ -145,37 +147,40 @@ Import module.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Output 
+#### Output 
 The tool returns table with 6 columns:chr     locus_with_SNPs list_tested_SNPs        interacting_locus_coord pval    p-value_critical
         <ul>
           <li><a href="#chr">chr - chromosome</a></li>
-          <li><a href="#bin_tested">bin_start - start of target bins for which significant interactions were explored for</a></li>
-          <li><a href="#list_of_points">list_of_loci - list with precise coordinates of features of interes, falling to the bins </a></li>
+          <li><a href="#bin_tested">bin_start - start of target bins (algorithm detects significant interactions between these and surrounding bins</a></li>
+          <li><a href="#list_of_points">list_of_loci - list with the precise coordinates of features of interes (SNPs, TSSs, etc), falling to the bins</a></li>
           <li><a href="#interacting_locus_coord">interacting_locus_coord - start of significantly interacting bins</a></li>
           <li><a href="#pval">pval - p-value</a></li>
 
 </ul> 
 
-Using the cli version, you get the file with the table described above, since the output file name is a required argument.
+Using the cli-version, you get the file with the table described above, since the output file name is a required argument.
 
-In case &&& usage the function _get_contucts_ returns the table and output file is not generated.
+In case pp usage the function _get_contucts_ returns the table and output file is not generated.
 
 
 
-<!-- ROADMAP -->
-## Roadmap
+### Parameters description
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+#### Average heatmap generation
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example to get contacts for particular set of ATAC-seq peaks). In this case the use of $$$ option is recommended. Usage of the option provides additionally average heatmap around contacts obtained which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
+ <ul>
+          <li><a href="#cli_avr_heatmap">add --&&& in cli-version</a></li>
+          <li><a href="#jupyter_avr_heatmap">specify &&&=True in &&&-version</a></li>
+ </ul> 
+<p align="right">(<a href="#top">back to top</a>)</p> 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+#### Resolution
+
+One of the important issue is Hi-C data resolution. Everybody strives to set as small a bin size as it possible for Hi-C data, this strategy helps to more accurately annotate the resulting contacts in the subsequent analysis. But, unfortunately, using the sparse data is not appropriate here. The only thing user should rely on is the Hi-C map quality.  
+
+#### Distance 
+In accordance with the initial paper https://doi.org/10.1038/nature19847 an appropriate distance constraining the field of contacts search is ±5 Mb for human data. 
 
 
 
