@@ -50,6 +50,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
+
 <details>
   <summary>Table of Contents</summary>
   <ul>
@@ -61,6 +62,12 @@
     <ul> 
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
+        <ul>
+          <li><a href="#input">Input data</a></li>
+          <li><a href="#command-line-usage">command-line-usage</a></li>
+          <li><a href="#use as python package">use as python package</a></li>
+          
+        </ul> 
     </ul>
      </li>
         <li><a href="#roadmap">Roadmap</a></li>
@@ -90,31 +97,36 @@ One of the important issue is Hi-C data resolution. Everybody strives to set as 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-
 ### Installation
+Requirements
+        <ul>
+          <li><a href="#python">python</a></li>
+        </ul> 
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+1. Create new conda environment. 
+2. Install from PyPI using pip to the environment.
+  ```sh
+   pip install contact-hunter
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+### Input data 
+   <ul>
+          <li><a href="#Hi-C">Hi-C map in .cool format </a></li>
+          <li><a href="#list-of-locus"> Tab-delimited file for genomic features to be explored. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
+           <li><a href="#list-of-back-locus"> Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
+       </ul> 
+       
+   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressed genes, all other TSSs can be background. For more details on background read the paper https://doi.org/10.1038/nature19847.
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+### Command-line-usage
+
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
