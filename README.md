@@ -86,7 +86,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool applying this method (with minor technical differences), which allows the user to obtain meaningful contacts for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
+There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
 The package was developed to detect significant contacts from a human Hi-C data. It has not been tested on another species.
 
@@ -126,13 +126,39 @@ Requirements
 
 
 ### Command-line-usage
+Type  _contact-hunter  -h_   in terminal to view all the parameter description.
+  ```sh
+   contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
+   ```
+### Use as a python package
+Import module.
+  ```sh
+   import contact-hunter
+   ```
+ Use _get_contacts_ function.
+ 
+ Type  _?contact-hunter.get_contacts_  to view all the parameter description.
 
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+```sh
+   contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### Output 
+The tool returns table with 6 columns:chr     locus_with_SNPs list_tested_SNPs        interacting_locus_coord pval    p-value_critical
+        <ul>
+          <li><a href="#chr">chr - chromosome</a></li>
+          <li><a href="#bin_tested">bin_start - start of target bins for which significant interactions were explored for</a></li>
+          <li><a href="#list_of_points">list_of_loci - list with precise coordinates of features of interes, falling to the bins </a></li>
+          <li><a href="#interacting_locus_coord">interacting_locus_coord - start of significantly interacting bins</a></li>
+          <li><a href="#pval">pval - p-value</a></li>
+
+</ul> 
+
+Using the cli version, you get the file with the table described above, since the output file name is a required argument.
+
+In case &&& usage the function _get_contucts_ returns the table and output file is not generated.
 
 
 
