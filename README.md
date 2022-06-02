@@ -63,14 +63,14 @@
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
           <ul>
-             <li><a href="#input data">input data</a></li>
+             <li><a href="input data">input data</a></li>
              <li><a href="#command-line-usage">command-line-usage</a></li>
              <li><a href="usage as a python package">use as python package</a></li>
              <li><a href="#output">output</a></li>
           </ul> 
-        <li><a href="#Parameters description">Parameters description</a></li>
+        <li><a href="Parameters description">Parameters description</a></li>
         <ul>
-            <li><a href="#Average heatmap generation">average heatmap generation</a></li>
+            <li><a href="Average heatmap generation">average heatmap generation</a></li>
             <li><a href="#resolution">resolution</a></li>
             <li><a href="#distance">distance</a></li>
         </ul> 
@@ -114,17 +114,8 @@ Requirements
 
 
 ### Usage
+
 #### Input data
-<ul>
-          <li><a href="#Hi-C">Hi-C map in .cool format </a></li>
-          <li><a href="#list-of-locus"> Tab-delimited file for genomic features to be explored. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
-           <li><a href="#list-of-back-locus"> Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs) </a></li>
-       </ul> 
-       
-   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressed genes, all other TSSs can be background. For more details on background read the paper https://doi.org/10.1038/nature19847.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 #### Command-line-usage
 Type  _contact-hunter  -h_   in terminal to view all the parameters description.
@@ -132,11 +123,11 @@ Type  _contact-hunter  -h_   in terminal to view all the parameters description.
    contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
    ```
 #### Usage as a python package
-Import module.
+Import module
   ```sh
    import contact-hunter
    ```
- Use _get_contacts_ function.
+ Use _get_contacts_ function
  
  Type  _?contact-hunter.get_contacts_  to view all the parameters description.
 
