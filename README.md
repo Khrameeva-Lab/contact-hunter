@@ -62,17 +62,17 @@
     <ul> 
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
-    <ul>
-        <li><a href="#input data">input data</a></li>
-        <li><a href="#command-line-usage">command-line-usage</a></li>
-        <li><a href="usage as a python package">use as python package</a></li>
-        <li><a href="#output">output</a></li>
-        </ul> 
-       <li><a href="#Parameters description">Parameters description</a></li>
+          <ul>
+             <li><a href="#input data">input data</a></li>
+             <li><a href="#command-line-usage">command-line-usage</a></li>
+             <li><a href="usage as a python package">use as python package</a></li>
+             <li><a href="#output">output</a></li>
+          </ul> 
+        <li><a href="#Parameters description">Parameters description</a></li>
         <ul>
-          <li><a href="#average heatmap generation">average heatmap generation</a></li>
-          <li><a href="#resolution">resolution</a></li>
-          <li><a href="#distance">distance</a></li>
+            <li><a href="#Average heatmap generation">average heatmap generation</a></li>
+            <li><a href="#resolution">resolution</a></li>
+            <li><a href="#distance">distance</a></li>
         </ul> 
    </ul>
      </li>  
@@ -113,9 +113,7 @@ Requirements
 
 
 
-<!-- USAGE EXAMPLES -->
 ### Usage
-
 #### Input data
 <ul>
           <li><a href="#Hi-C">Hi-C map in .cool format </a></li>
@@ -124,11 +122,12 @@ Requirements
        </ul> 
        
    The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressed genes, all other TSSs can be background. For more details on background read the paper https://doi.org/10.1038/nature19847.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 #### Command-line-usage
-Type  _contact-hunter  -h_   in terminal to view all the parameter description.
+Type  _contact-hunter  -h_   in terminal to view all the parameters description.
   ```sh
    contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
    ```
@@ -139,7 +138,7 @@ Import module.
    ```
  Use _get_contacts_ function.
  
- Type  _?contact-hunter.get_contacts_  to view all the parameter description.
+ Type  _?contact-hunter.get_contacts_  to view all the parameters description.
 
 ```sh
    contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
@@ -162,8 +161,9 @@ Using the cli-version, you get the file with the table described above, since th
 
 In case pp usage the function _get_contucts_ returns the table and output file is not generated.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-
+<!-- PARAMETERS DESCRIPTION -->
 ### Parameters description
 
 #### Average heatmap generation
@@ -173,7 +173,7 @@ The tool has been tested on human data, the goal was to detect genomic regions i
           <li><a href="#cli_avr_heatmap">add --&&& in cli-version</a></li>
           <li><a href="#jupyter_avr_heatmap">specify &&&=True in &&&-version</a></li>
  </ul> 
-<p align="right">(<a href="#top">back to top</a>)</p> 
+
 
 #### Resolution
 
