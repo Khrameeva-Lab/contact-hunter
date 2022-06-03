@@ -63,14 +63,14 @@
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
           <ul>
-             <li><a href="input data">input data</a></li>
-             <li><a href="#command-line-usage">command-line-usage</a></li>
-             <li><a href="usage as a python package">use as python package</a></li>
+             <li><a href="#input-data">input data</a></li>
+             <li><a href="#use-as-a-command-line-tool">use as a command line tool</a></li>
+             <li><a href="#use-as-a-python-module">use as a python module</a></li>
              <li><a href="#output">output</a></li>
           </ul> 
-        <li><a href="Parameters description">Parameters description</a></li>
+        <li><a href="#parameters-description">Parameters description</a></li>
         <ul>
-            <li><a href="Average heatmap generation">average heatmap generation</a></li>
+            <li><a href="#average-heatmap-generation">average heatmap generation</a></li>
             <li><a href="#resolution">resolution</a></li>
             <li><a href="#distance">distance</a></li>
         </ul> 
@@ -90,7 +90,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
+There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map provided for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
 The package was developed to detect significant contacts from a human Hi-C data. It has not been tested on another species.
 
@@ -101,7 +101,7 @@ The package was developed to detect significant contacts from a human Hi-C data.
 ### Installation
 Requirements
         <ul>
-          <li><a href="#python">python</a></li>
+          <li>python</li>
         </ul> 
 
 1. Create new conda environment. 
@@ -117,40 +117,52 @@ Requirements
 
 #### Input data
 
-#### Command-line-usage
-Type  _contact-hunter  -h_   in terminal to view all the parameters description.
+ <ul>
+           <li>Hi-C map in .cool format</li> 
+           <li>Tab-delimited file for genomic features to be explored. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs)</li>
+            <li>Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs)</li>
+        </ul> 
+
+   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressed genes, all other TSSs can be background. For more details on background read the paper https://doi.org/10.1038/nature19847.
+ <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+#### Use as a command line tool
+run in terminal
   ```sh
    contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
-   ```
-#### Usage as a python package
-Import module
+```
+type  _contact-hunter  -h_   in terminal to view all the parameters.
+
+#### Use as a python module
+import module
   ```sh
    import contact-hunter
    ```
- Use _get_contacts_ function
+ use _get_contacts_ function
  
- Type  _?contact-hunter.get_contacts_  to view all the parameters description.
-
 ```sh
    contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
    ```
+ type  _?contact-hunter.get_contacts_  to view all the parameters.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Output 
 The tool returns table with 6 columns:chr     locus_with_SNPs list_tested_SNPs        interacting_locus_coord pval    p-value_critical
         <ul>
-          <li><a href="#chr">chr - chromosome</a></li>
-          <li><a href="#bin_tested">bin_start - start of target bins (algorithm detects significant interactions between these and surrounding bins</a></li>
-          <li><a href="#list_of_points">list_of_loci - list with the precise coordinates of features of interes (SNPs, TSSs, etc), falling to the bins</a></li>
-          <li><a href="#interacting_locus_coord">interacting_locus_coord - start of significantly interacting bins</a></li>
-          <li><a href="#pval">pval - p-value</a></li>
+          <li>chr - chromosome</li>
+          <li>bin_start - start of target bins (algorithm detects significant interactions between these and surrounding bins</li>
+          <li>list_of_loci - list with the precise coordinates of features of interes (SNPs, TSSs, etc), falling to the bins</li>
+          <li>interacting_locus_coord - start of significantly interacting bins</li>
+          <li>pval - p-value</li>
 
 </ul> 
 
-Using the cli-version, you get the file with the table described above, since the output file name is a required argument.
+Using the CLI version, you get a file with the table described above, since the output file name is a required argument.
 
-In case pp usage the function _get_contucts_ returns the table and output file is not generated.
+When used as a python module, the _get_contucts_ function returns a table, but no output file is created.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -161,8 +173,8 @@ In case pp usage the function _get_contucts_ returns the table and output file i
 
 The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example to get contacts for particular set of ATAC-seq peaks). In this case the use of $$$ option is recommended. Usage of the option provides additionally average heatmap around contacts obtained which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
  <ul>
-          <li><a href="#cli_avr_heatmap">add --&&& in cli-version</a></li>
-          <li><a href="#jupyter_avr_heatmap">specify &&&=True in &&&-version</a></li>
+          <li>add --avr_heatmap to command when using CLI version</li>
+          <li>specify plot_generate=True when using as a python module</li>
  </ul> 
 
 
@@ -177,8 +189,6 @@ In accordance with the initial paper https://doi.org/10.1038/nature19847 an appr
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -205,29 +215,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Anna Kononkova - @example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.com/Khrameeva-Lab/contact-hunter)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 
