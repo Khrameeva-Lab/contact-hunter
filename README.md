@@ -73,6 +73,7 @@
             <li><a href="#average-heatmap-generation">average heatmap generation</a></li>
             <li><a href="#resolution">resolution</a></li>
             <li><a href="#distance">distance</a></li>
+            <li><a href="#fdr">fdr</a></li>
         </ul> 
    </ul>
      </li>  
@@ -90,7 +91,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map provided for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
+There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
 The package was developed to detect significant contacts from a human Hi-C data. It has not been tested on another species.
 
@@ -104,7 +105,7 @@ Requirements
           <li>python</li>
         </ul> 
 
-1. Create new conda environment. 
+1. Create a new conda environment. 
 2. Install from PyPI using pip to the environment.
   ```sh
    pip install contact-hunter
@@ -123,7 +124,7 @@ Requirements
             <li>Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs)</li>
         </ul> 
 
-   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressed genes, all other TSSs can be background. For more details on background read the paper https://doi.org/10.1038/nature19847.
+   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressing genes, all other TSSs can be a background. For more details read methods section in https://doi.org/10.1038/nature19847.
  <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -133,7 +134,7 @@ run in terminal
   ```sh
    contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
 ```
-type  _contact-hunter  -h_   in terminal to view all the parameters.
+type   _contact-hunter  -h_    in terminal to view all the parameters
 
 #### Use as a python module
 import module
@@ -145,7 +146,7 @@ import module
 ```sh
    contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
    ```
- type  _?contact-hunter.get_contacts_  to view all the parameters.
+ type   _?contact-hunter.get_contacts_    to view all the parameters
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -171,10 +172,10 @@ When used as a python module, the _get_contucts_ function returns a table, but n
 
 #### Average heatmap generation
 
-The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example to get contacts for particular set of ATAC-seq peaks). In this case the use of $$$ option is recommended. Usage of the option provides additionally average heatmap around contacts obtained which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
+The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example to get contacts for particular set of ATAC-seq peaks). In this case the generation of average heatmap is recommended. The heatmap can be easily obtained with the usage of specific option. In addition to basic output it yields average heatmap around significant contacts which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
  <ul>
-          <li>add --avr_heatmap to command when using CLI version</li>
-          <li>specify plot_generate=True when using as a python module</li>
+          <li>add <em>--avr_heatmap</em> to command when using CLI version</li>
+          <li>specify <em>plot_generate=True</em> when using as a python module</li>
  </ul> 
 
 
@@ -185,13 +186,15 @@ One of the important issue is Hi-C data resolution. Everybody strives to set as 
 #### Distance 
 In accordance with the initial paper https://doi.org/10.1038/nature19847 an appropriate distance constraining the field of contacts search is ±5 Mb for human data. 
 
+#### FDR 
+The algorithm implementation includes significant contacts selection by fdr. The default fdr value is 0.01. There is a column _p-val_ in output table. These are p-values of contacts that survived the correction. Importantly, if user plans to select contacts by p-value (e.g. to consider only contacts with the lowest p-value), then this selection should be done separately for each chromosome: a single threshold should not be set. This recommendation is due to the fact that each chromosome is considered separately in the algorithm and the critical values are calculated individually.
+
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make the tool better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -227,15 +230,13 @@ Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.c
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/Khrameeva-Lab/contact-hunter/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/Khrameeva-Lab/contact-hunter/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/Khrameeva-Lab/contact-hunter/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/Khrameeva-Lab/contact-hunter/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
