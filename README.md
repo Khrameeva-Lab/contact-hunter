@@ -15,8 +15,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![GPLv3 license][license-shield]][license-url]
 
@@ -183,7 +181,7 @@ The algorithm implementation includes significant contacts selection by fdr. The
 <!-- LICENSE -->
 ## License
 
-Distributed under the GPLv3 License. See LICENSE  for more information.
+Distributed under the GPLv3 License. See <a href="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/LICENSE">LICENSE</a>  for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -203,12 +201,8 @@ Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.c
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/Khrameeva-Lab/contact-hunter/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/Khrameeva-Lab/contact-hunter/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/Khrameeva-Lab/contact-hunter/issues
-[license-shield]: https://img.shields.io/badge/LICENSE-GPLv3-green
+[issues-shield]:https://img.shields.io/github/issues/Khrameeva-Lab/contact-hunter
+[issues-url]: https://github.com/Khrameeva-Lab/contact-hunter/issues 
+[license-shield]: https://img.shields.io/badge/license-GPLv3-brightgreen
 [license-url]: https://github.com/Khrameeva-Lab/contact-hunter/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
