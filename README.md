@@ -209,6 +209,6 @@ Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.c
 [stars-url]: https://github.com/Khrameeva-Lab/contact-hunter/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/Khrameeva-Lab/contact-hunter/issues
-[license-shield]: [https://img.shields.io/badge/LICENSE-GPLv3-green]
+[license-shield]: https://img.shields.io/badge/LICENSE-GPLv3-green
 [license-url]: https://github.com/Khrameeva-Lab/contact-hunter/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
