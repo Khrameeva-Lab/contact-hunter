@@ -102,7 +102,7 @@ The package was developed to detect significant contacts from a human Hi-C data.
 ### Installation
 Requirements
         <ul>
-          <li>python</li>
+          <li>python 3.6+</li>
         </ul> 
 
 1. Create a new conda environment. 
@@ -120,8 +120,8 @@ Requirements
 
  <ul>
            <li>Hi-C map in .cool format</li> 
-           <li>Tab-delimited file for genomic features to be explored. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs)</li>
-            <li>Tab-delimited file for background. Should not contain header, 3 columns are expected: chromosome, start, end, where start and end can be the same (e.g. for SNPs and TSSs)</li>
+           <li>Tab-delimited file for genomic features to be explored. Should not contain header, 2 columns are expected: chromosome, start</li>
+            <li>Tab-delimited file for background. Should not contain header, 2 columns are expected: chromosome, start</li>
         </ul> 
 
    The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressing genes, all other TSSs can be a background. For more details read methods section in https://doi.org/10.1038/nature19847.
