@@ -20,7 +20,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -146,7 +145,7 @@ import module
 ```sh
    contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
    ```
- type   _?contact-hunter.get_contacts_    to view all the parameters
+ type  _help(contact-hunter.get_contacts_) or _?contact-hunter.get_contacts_ in jupyter notebook to view all the parameters
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -218,7 +217,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Anna Kononkova - @example.com
+Anna Kononkova - a.kononkova@yandex.ru
 
 Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.com/Khrameeva-Lab/contact-hunter)
 
