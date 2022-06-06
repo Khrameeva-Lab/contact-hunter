@@ -33,17 +33,8 @@
   <h3 align="center">contact-hunter</h3>
 
   <p align="center">
-    Explore contacts of genomic regions with contact-hunter!
-    <br />
-    <a href="https://github.com/Khrameeva-Lab/contact-hunter"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Khrameeva-Lab/contact-hunter">View Demo</a>
-    ·
-    <a href="https://github.com/Khrameeva-Lab/contact-hunter/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Khrameeva-Lab/contact-hunter/issues">Request Feature</a>
-  </p>
+    <strong>Explore contacts of genomic regions with contact-hunter!</strong>
+   </p>
 </div>
 
 
