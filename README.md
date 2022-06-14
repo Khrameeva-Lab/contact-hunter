@@ -79,8 +79,8 @@
 <!-- PROJECT IDEA -->
 <br />
 <div align="left">
-  <a href="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture.png">
-    <img src="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture_v3.png" alt="find significant contacts" width="400" height="240">
+  <a>
+    <img src="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture_v3.png" width="400" height="240">
   </a>
 
 </div>
