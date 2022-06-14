@@ -24,7 +24,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Khrameeva-Lab/contact-hunter">
-    <img src="images/logo.png" alt="Logo" width="100" height="90">
+    <img src="images/logo_v3.png" alt="Logo" width="110" height="110">
   </a>
 
   <h3 align="center">contact-hunter</h3>
