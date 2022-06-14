@@ -80,7 +80,7 @@
 <br />
 <div align="left">
   <a href="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture.png">
-    <img src="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture.png" alt="find significant contacts" width="180" height="180">
+    <img src="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture_v3.png" alt="find significant contacts" width="400" height="240">
   </a>
 
 </div>
