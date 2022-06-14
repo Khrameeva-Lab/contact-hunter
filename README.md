@@ -27,10 +27,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Contact Hunter</h3>
+  <h3 align="center">contact-hunter</h3>
 
   <p align="center">
-    <strong>Explore interactions of genomic regions with <em>Contact Hunter</em>!</strong>
+    <strong>Explore interactions of genomic regions with contact-hunter!</strong>
    </p>
 </div>
 
