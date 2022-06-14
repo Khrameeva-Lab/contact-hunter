@@ -27,10 +27,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">contact-hunter</h3>
+  <h3 align="center">Contact Hunter</h3>
 
   <p align="center">
-    <strong>Explore contacts of genomic regions with contact-hunter!</strong>
+    <strong>Explore interactions of genomic regions with <em>Contact Hunter</em>!</strong>
    </p>
 </div>
 
@@ -92,8 +92,7 @@ Requirements
           <li>python 3.6+</li>
         </ul> 
 
-1. Create a new conda environment. 
-2. Install from PyPI using pip to the environment.
+Install from PyPI using pip.
   ```sh
    pip install contact-hunter
    ```
@@ -119,21 +118,21 @@ Requirements
 #### Use as a command line tool
 run in terminal
   ```sh
-   contact-hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
+   contact_hunter COOL_PATH   LOCUS_BACKGROUND   LOCUS_TEST   RESOLUTION   DISTANCE   RESULTS_FILE
 ```
-type   _contact-hunter  -h_    in terminal to view all the parameters
+type   _contact_hunter  -h_    in terminal to view all the parameters
 
 #### Use as a python module
 import module
   ```sh
-   import contact-hunter
+   import contact_hunter
    ```
  use _get_contacts_ function
  
 ```sh
-   contact-hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
+   contact_hunter.get_contacts(cool,background_locus,tested_locus,resolution,distance)
    ```
- type  _help(contact-hunter.get_contacts_) or _?contact-hunter.get_contacts_ in jupyter notebook to view all the parameters
+ type  _help(contact_hunter.get_contacts_) or _?contact_hunter.get_contacts_ in jupyter notebook to view all the parameters
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
