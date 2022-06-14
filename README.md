@@ -76,7 +76,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About 
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- PROJECT IDEA -->
+<br />
+<div align="left">
+  <a href="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture.png">
+    <img src="https://github.com/Khrameeva-Lab/contact-hunter/blob/main/images/contact_picture.png" alt="find significant contacts" width="180" height="180">
+  </a>
+
+</div>
 
 There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
@@ -204,4 +211,3 @@ Project Link: [https://github.com/Khrameeva-Lab/contact-hunter](https://github.c
 [issues-url]: https://github.com/Khrameeva-Lab/contact-hunter/issues 
 [license-shield]: https://img.shields.io/badge/license-GPLv3-brightgreen
 [license-url]: https://github.com/Khrameeva-Lab/contact-hunter/blob/main/LICENSE
-[product-screenshot]: images/screenshot.png
