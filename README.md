@@ -144,7 +144,7 @@ import module
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Output 
-The tool returns table with 6 columns:chr     locus_with_SNPs list_tested_SNPs        interacting_locus_coord pval    p-value_critical
+The tool returns table with 5 columns:chr     locus_with_SNPs list_tested_SNPs        interacting_locus_coord pval 
         <ul>
           <li>chr - chromosome</li>
           <li>bin_start - start of target bins (algorithm detects significant interactions between these and surrounding bins</li>
