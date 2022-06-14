@@ -5,11 +5,11 @@ with open("README.md", "r") as fh:
 
 
 setuptools.setup(
-     name='contact_hunter',  
+     name='contact-hunter',  
      version='0.1.0',
      python_requires=">=3.6.0",
      author="Anna Kononkova",
-     author_email="a.kononkova@yandex.ru"
+     author_email="a.kononkova@yandex.ru",
      description="A tool to obtain significant Hi-C contacts for a particular set of loci",
      packages=setuptools.find_packages(),
      url="https://github.com/Khrameeva-Lab/contact-hunter",
