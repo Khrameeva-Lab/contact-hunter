@@ -85,7 +85,7 @@
 
 </div>
 
-There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H.Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
+There are many methods to investigate significant Hi-C contacts established between a particular genomic region and its neighborhood within some range of distances. One popular method was introduced by H. Won in 2016 (https://doi.org/10.1038/nature19847). Here we present a handy tool, applying this method (with minor technical differences). It allows user to obtain meaningful contacts from Hi-C map for a predefined list of genomic coordinates corresponding to SNPs, TSSs or any other features.
 
 The package was developed to detect significant contacts from a human Hi-C data. It has not been tested on another species.
 
@@ -117,7 +117,7 @@ Install from PyPI using pip.
             <li>Tab-delimited file for background. Should not contain header, 2 columns are expected: chromosome, start</li>
         </ul> 
 
-   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressing genes, all other TSSs can be a background. For more details read methods section in https://doi.org/10.1038/nature19847.
+   The file with background can be generated based on the data you are exploring. For example, if you are going to find contacts for a list of specific SNPs it is reasonable to use a list with all the rest SNPs from the relevant GWAS study as a background. For a set of differentially expressing genes, all other TSSs can be a background. More details on background can be found in methods section https://doi.org/10.1038/nature19847.
  <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -165,7 +165,7 @@ When used as a python module, the _get_contucts_ function returns a table, but n
 
 #### Average heatmap generation
 
-The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example to get contacts for particular set of ATAC-seq peaks). In this case the generation of average heatmap is recommended. The heatmap can be easily obtained with the usage of specific option. In addition to basic output it yields average heatmap around significant contacts which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
+The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example, to get contacts for a particular set of ATAC-seq peaks). In this case, the generation of an average heatmap is recommended. The heatmap can be easily obtained with the usage of specific option. In addition to basic output it yields average heatmap around significant contacts which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
  <ul>
           <li>add <em>--avr_heatmap</em> to command when using CLI version</li>
           <li>specify <em>plot_generate=True</em> when using as a python module</li>
