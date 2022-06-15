@@ -165,7 +165,7 @@ When used as a python module, the _get_contucts_ function returns a table, but n
 
 #### Average heatmap generation
 
-The tool has been tested on human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example, to get contacts for a particular set of ATAC-seq peaks). In this case, the generation of an average heatmap is recommended. The heatmap can be easily obtained with the usage of specific option. In addition to basic output it yields average heatmap around significant contacts which enables to estimate roughly the performance of the tool on users specific data. The clear enrichment in central pixel is a good sign! :)
+The tool has been tested on the human data, the goal was to detect genomic regions interacting significantly with the list of target SNPs or a gene set TSSs. One can use the tool to explore contacts in another species with another features (for example, to get contacts for a particular set of ATAC-seq peaks). In this case, the generation of an average heatmap is recommended. The heatmap can be easily obtained with the usage of specific option. In addition to basic output, it yields an average heatmap around significant contacts which allows to estimate roughly the performance of the tool on user's specific data. The clear enrichment in the central pixel is a good sign! :)
  <ul>
           <li>add <em>--avr_heatmap</em> to command when using CLI version</li>
           <li>specify <em>plot_generate=True</em> when using as a python module</li>
@@ -174,10 +174,10 @@ The tool has been tested on human data, the goal was to detect genomic regions i
 
 #### Resolution
 
-One of the important issues is Hi-C data resolution. Everybody strives to set as small a bin size as it possible for Hi-C data, this strategy helps to more accurately annotate the resulting contacts in the subsequent analysis. But, unfortunately, using the sparse data is not appropriate here. The only thing user should rely on is the Hi-C map quality.  
+One of the important issues is the Hi-C data resolution. Everybody strives to set as small a bin size as possible for Hi-C data, this strategy helps to more accurately annotate the resulting contacts in the subsequent analysis. But, unfortunately, using the sparse data is not appropriate here. The only thing user should rely on is the Hi-C map quality.  
 
 #### Distance 
-In accordance with the initial paper https://doi.org/10.1038/nature19847 an appropriate distance constraining the field of contacts search is ±5 Mb for human data. 
+In accordance with the initial paper https://doi.org/10.1038/nature19847, an appropriate distance constraining the field of contacts search is ±5 Mb for the human data. 
 
 #### FDR 
 The algorithm implementation includes significant contacts selection by fdr. The default fdr value is 0.01. There is a column _p-val_ in output table. These are p-values of contacts that survived the correction. Importantly, if user plans to select contacts by p-value (e.g. to consider only contacts with the lowest p-value), then this selection should be done separately for each chromosome: a single threshold should not be set. This recommendation is due to the fact that each chromosome is considered separately in the algorithm and the critical values are calculated individually.
